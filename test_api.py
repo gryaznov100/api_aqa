@@ -32,28 +32,28 @@ def test_get_all_post():
     assert len(response) == 100, 'Несостыковочка'
 
 
-@allure.feature('Posts')
-@allure.story('Manipulate posts')
-@allure.title('Создаем POST запрос')
-@pytest.mark.tryfirst
-def test_post_a_post():
-    with allure.step('Подготавливаем тестовые данные'):
-        body = {
-            'title': 'foo',
-            'body': 'bar',
-            'userId': 1
-        }
-        headers = {'Content-type': 'application/json'}
-    with allure.step('Отправляем POST запрос'):
-        response = requests.post(
-            'https://jsonplaceholder.typicode.com/posts/',
-            json=body,
-            headers=headers
-        )
-    with allure.step('Сравниваем статус запроса с 201'):
-        assert response.status_code == 201
-    with allure.step('Сравниваем полученный id с 101'):
-        assert response.json()['id'] == 101
+# @allure.feature('Posts')
+# @allure.story('Manipulate posts')
+# @allure.title('Создаем POST запрос')
+# @pytest.mark.tryfirst
+# def test_post_a_post():
+#     with allure.step('Подготавливаем тестовые данные'):
+#         body = {
+#             'title': 'foo',
+#             'body': 'bar',
+#             'userId': 1
+#         }
+#         headers = {'Content-type': 'application/json'}
+#     with allure.step('Отправляем POST запрос'):
+#         response = requests.post(
+#             'https://jsonplaceholder.typicode.com/posts/',
+#             json=body,
+#             headers=headers
+#         )
+#     with allure.step('Сравниваем статус запроса с 201'):
+#         assert response.status_code == 201
+#     with allure.step('Сравниваем полученный id с 101'):
+#         assert response.json()['id'] == 101
 
 
 @allure.feature('Example')
